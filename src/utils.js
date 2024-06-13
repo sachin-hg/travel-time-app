@@ -1,6 +1,6 @@
 // src/utils.js
 export const autoComplete2 = async (searchString) => {
-    const apiKey = 'AIzaSyBIGSfeoDDeRWSo6Rnfw-hQLYWT2KYMqTA';
+    const apiKey = '';
     const endpoint = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${encodeURIComponent(searchString)}&key=${apiKey}`;
 
     const response = await fetch(endpoint);
