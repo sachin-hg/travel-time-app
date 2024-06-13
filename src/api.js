@@ -47,12 +47,13 @@ export const osm = async ({longitude, latitude, departAt, timeInMinutes, driveMo
         "locations":[{"lat":latitude,"lon":longitude, ...(driveMode === 'multimodal' ? {type: 'break'} : {})}],
         "costing": driveMode,
         ...(driveMode === 'multimodal' ? {
-            "costing_options":{"transit":{"use_bus":"0.4","use_rail":"0.9","use_transfers":"0.6"}}
+            "costing_options":{"transit":{"use_bus":1,"use_rail":1,"use_transfers":1}}
         }: {}),
         "contours":[{"time":parseInt(timeInMinutes),"color":"ff0000"}]
     }
 
-    const url = `https://valhalla1.openstreetmap.de/isochrone?json=${JSON.stringify(data)}`
+    // const url = `https://valhalla1.openstreetmap.de/isochrone?json=${JSON.stringify(data)}`
+    const url = `https://osm.housing.com/isochrone?json=${JSON.stringify(data)}`
 
     const response = await fetch(url);
     const result = await response.json();
